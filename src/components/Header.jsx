@@ -1,6 +1,6 @@
 function Header(){
     return (
-        <h1>hello</h1>
+        <h1>Nc News</h1>
     )
 }
 export default Header

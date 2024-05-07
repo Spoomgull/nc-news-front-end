@@ -4,3 +4,23 @@
   padding: 2rem;
   text-align: center;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-evenly;
+  border:2px solid red;
+  border-radius: 5px;
+  height: 2rem;
+}
+
+.article {
+  list-style-type: none;
+  width:fit-content;
+  text-align: center;
+  justify-content: center;
+}
+
+.article-img {
+  height:10rem;
+
+}
