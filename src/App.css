@@ -17,10 +17,14 @@
   list-style-type: none;
   width:fit-content;
   text-align: center;
-  justify-content: center;
 }
 
 .article-img {
   height:10rem;
 
+}
+
+.article-comment {
+  list-style-type: none;
+  width:fit-content
 }
