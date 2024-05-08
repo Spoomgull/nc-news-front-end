@@ -13,15 +13,12 @@ function AllArticles({setArticleChoice}){
         })
     },[])
     
-    function handleClick(e){
-        setArticleChoice(e)
-    }
     if(loading==="loaded"){
         return (
             articlesArr.map((article,index)=>{
                 return (
-                    <Link to={`/articles/${article.article_id}`}  key={article.article_id}className="article">
-                        <button type="submit">
+                    <Link to={`/articles/${article.article_id}`}  key={article.article_id}>
+                        <button className="article">
                             <li>Title: {article.title}</li>
                             <li>Topic: {article.topic}</li>
                             <img src={article.article_img_url} className="article-img"/>
