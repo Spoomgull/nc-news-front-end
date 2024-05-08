@@ -5,9 +5,10 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import Articles from "./components/Articles";
 import Topics from "./components/Topics"
+import Article from "./components/Article"
 
-function App() {
-  
+
+function App() {  
   return (
     <>
       <Header/>
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Articles/>}/>
         <Route path="/Topics" element={<Topics/>}/>
-
+        <Route path='/articles/:article_id' element={<Article/>}/>
       </Routes>
     </>
   )
