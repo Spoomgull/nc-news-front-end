@@ -8,6 +8,7 @@ function ArticleComments (){
     const articleChoice = article.article_id
     const [articleComments, setArticleComments] = useState([])
     const [loading, setLoading] = useState("loading")
+    
 
     useEffect(()=>{
         axios.get(`https://northcoders-news-api-bjpy.onrender.com/api/articles/${articleChoice}/comments`)
@@ -16,17 +17,17 @@ function ArticleComments (){
             setLoading("loaded")
     }
     ,[articleChoice])
-    console.log(articleComments)
     if(loading === "loaded"){
         return articleComments.map((comment)=>{
+
+
             return (
-                <button className="article-comment">
+                <button key={comment.comment_id}className="article-comment">
                     <li>Comment: {comment.body}</li>
                     <li>Posted by: {comment.author}</li>
                     <li>Likes: {comment.votes}</li>
                     <li>Posted at: {comment.created_at}</li>
                 </button>
-
             )
         })
 
