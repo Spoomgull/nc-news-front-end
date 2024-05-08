@@ -24,3 +24,8 @@
   height:10rem;
 
 }
+
+.article-comment {
+  list-style-type: none;
+  width:fit-content
+}
