@@ -22,12 +22,15 @@ function ArticleComments (){
 
 
             return (
-                <button key={comment.comment_id}className="article-comment">
+                < div key={comment.comment_id}>
+                
+                <button className="article-comment">
                     <li>Comment: {comment.body}</li>
                     <li>Posted by: {comment.author}</li>
                     <li>Likes: {comment.votes}</li>
                     <li>Posted at: {comment.created_at}</li>
                 </button>
+                </div>
             )
         })
 
