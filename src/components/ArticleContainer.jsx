@@ -2,6 +2,8 @@ import Article from "./Article"
 import UpdateArticleVotes from "./UpdateArticleVotes"
 import ArticleComments from "./ArticleComments"
 import NewArticleComments from "./NewArticleComments"
+import { useState } from "react"
+
 
 function ArticleContainer(){
     return (
@@ -9,7 +11,7 @@ function ArticleContainer(){
         <Article/>
         <UpdateArticleVotes/>
         <NewArticleComments/>
-        <ArticleComments/>
+        <ArticleComments />
         </>
     )
 }

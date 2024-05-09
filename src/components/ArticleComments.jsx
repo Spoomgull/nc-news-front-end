@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import axios from "axios"
 import { useEffect, useState } from "react"
-
+import DeleteComment from "./DeleteComment"
 
 function ArticleComments (){
     const article = useParams()
@@ -17,9 +17,9 @@ function ArticleComments (){
             setLoading("loaded")
     }
     ,[articleChoice])
+
     if(loading === "loaded"){
         return articleComments.map((comment)=>{
-
 
             return (
                 < div key={comment.comment_id}>
@@ -30,6 +30,8 @@ function ArticleComments (){
                     <li>Likes: {comment.votes}</li>
                     <li>Posted at: {comment.created_at}</li>
                 </button>
+                <br/>
+                <DeleteComment comment={comment}/>
                 </div>
             )
         })
