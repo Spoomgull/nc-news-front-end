@@ -8,14 +8,15 @@ const {author} = comment
 const logIn = "grumpy19"
 
 const handleClick = ()=>{
-        if(author === logIn){
-
-            axios.delete(`https://northcoders-news-api-bjpy.onrender.com/api/comments/${comment_id}`).then((response)=>{})
-        }
+    if(author === logIn){
+        axios.delete(`https://northcoders-news-api-bjpy.onrender.com/api/comments/${comment_id}`)
+    }
 }
 
 return (
-    <button onClick={handleClick}>Delete comment</button>
+    <form onClick={handleClick}>
+        <button type="submit">Delete comment</button>
+    </form>
     )
 }
 export default DeleteComment

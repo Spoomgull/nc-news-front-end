@@ -23,9 +23,9 @@ const handleSubmit = () => {
         body:newComment
     })
 }
-return <form onSubmit={handleSubmit}>
+return <form onClick={handleSubmit}>
     <label>Comment here: </label>
-    <input type="text"name="body" value={newComment} onChange={(event)=>{setNewComment(event.target.value)}}/>
+    <input type="text" name="body" value={newComment} onChange={(event)=>{setNewComment(event.target.value)}}/>
     <button type="submit">Submit</button>
     </form>
 }
