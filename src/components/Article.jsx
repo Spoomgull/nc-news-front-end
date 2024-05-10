@@ -3,12 +3,11 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import ErrorArticle from "./ErrorArticle"
 
-function Article (){
+function Article ({setError, error}){
     const article = useParams()
     const articleChoice = article.article_id
     const [loading , setLoading] = useState("loading")
     const [oneArticle, setOneArticle] = useState([])
-    const [error, setError] = useState(null)
      useEffect(()=>{
          axios.get(`https://northcoders-news-api-bjpy.onrender.com/api/articles/${articleChoice}`)
          .then((article)=>{
