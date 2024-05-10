@@ -2,13 +2,14 @@ import { useEffect,useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 import SortArticles from "./SortArticles"
+import ErrorArticle from "./ErrorArticle"
 
 function AllArticles(){
     const [articlesArr, setArticlesArr] = useState([])
     const [loading, setLoading] = useState("loading")
     const [buttonOrder, setButtonOrder] = useState("desc")
     const [sortBy, setSortBy] = useState("created_at")
-
+    
     useEffect(()=>{
         axios.get("https://northcoders-news-api-bjpy.onrender.com/api/articles")
         .then((articles)=>{
@@ -17,7 +18,8 @@ function AllArticles(){
             setLoading("loaded")
         })
     },[])
-
+    
+    
     if(sortBy!=="created_at"){
         if(buttonOrder==="asc"){
             articlesArr.sort((a,b)=>{return a[sortBy] - b[sortBy]})
@@ -32,6 +34,7 @@ function AllArticles(){
         return (
             <>
             <SortArticles setButtonOrder={setButtonOrder} setSortBy={setSortBy}/>
+            <p>Currently viewing articles by: {buttonOrder}ending</p>
             {articlesArr.map((article,index)=>{
                 const created_at = article.created_at.split("T")
                 return (

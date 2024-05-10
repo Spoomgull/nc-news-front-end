@@ -2,19 +2,25 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import SortArticles from "./SortArticles"
+import ErrorTopic from "./ErrorTopic"
 
 function Topic (){
     const [topicArticles, setTopicArticles] = useState([])
     const {topic} = useParams()
     const [buttonOrder, setButtonOrder] = useState("desc")
     const [sortBy, setSortBy] = useState("created_at")
+    const [error, setError] = useState(null)
     useEffect(()=>{
         axios.get(`https://northcoders-news-api-bjpy.onrender.com/api/articles?topic=${topic}`)
         .then((response)=>{
             setTopicArticles(response.data.articles)
-        }) 
+        }).catch((err)=>{
+            setError({err})
+        })
     },[topic])
-
+    if(error){
+        return <ErrorTopic/>
+    }
 
     if(sortBy!=="created_at"){
         if(buttonOrder==="asc"){
@@ -30,6 +36,7 @@ function Topic (){
     return(
         <>
         <SortArticles setButtonOrder={setButtonOrder} setSortBy={setSortBy}/>
+        <p>{buttonOrder}</p>
         {topicArticles.map((article)=>{
         const created_at = article.created_at.split("T")
         return (<Link to={`/articles/${article.article_id}`} key={article.article_id}>

@@ -1,19 +1,28 @@
 import { useEffect, useState} from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import ErrorArticle from "./ErrorArticle"
 
 function Article (){
     const article = useParams()
     const articleChoice = article.article_id
     const [loading , setLoading] = useState("loading")
     const [oneArticle, setOneArticle] = useState([])
+    const [error, setError] = useState(null)
      useEffect(()=>{
          axios.get(`https://northcoders-news-api-bjpy.onrender.com/api/articles/${articleChoice}`)
          .then((article)=>{
              setOneArticle(article.data.article)
              setLoading("loaded")
+         }).catch((err)=>{
+            setError({err})
          })
  },[articleChoice])
+
+if(error){
+    return <ErrorArticle/>
+}
+
  if(loading==="loaded"){
 const created_at = oneArticle.created_at.split("T")
      return (
