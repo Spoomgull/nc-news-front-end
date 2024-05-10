@@ -2,24 +2,23 @@ import axios from "axios"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 
-function NewArticleComments(){
+function NewArticleComments({loggedIn}){
     
     const [users, setUsers] = useState([])
     const [newComment, setNewComment] = useState("")
     
     const article = useParams()
     const articleChoice = article.article_id
-    const commentAuthor = "grumpy19"
 
 const handleSubmit = () => {
     axios.get("https://northcoders-news-api-bjpy.onrender.com/api/users").then((response)=>{
         setUsers(response.data.users)
     })
     users.map((user)=>{
-        if(user===commentAuthor){}
+        if(user===loggedIn){}
     })
     axios.post(`https://northcoders-news-api-bjpy.onrender.com/api/articles/${articleChoice}/comments`,{
-        username:commentAuthor,
+        username:loggedIn,
         body:newComment
     })
 }

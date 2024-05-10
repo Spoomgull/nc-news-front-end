@@ -1,14 +1,12 @@
 import axios from "axios"
 
-function DeleteComment ({comment}){
+function DeleteComment ({comment, loggedIn}){
 
 const {comment_id} = comment
 const {author} = comment
 
-const logIn = "grumpy19"
-
 const handleClick = ()=>{
-    if(author === logIn){
+    if(author === loggedIn){
         axios.delete(`https://northcoders-news-api-bjpy.onrender.com/api/comments/${comment_id}`)
     }
 }
