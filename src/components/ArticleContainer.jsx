@@ -6,12 +6,19 @@ import { useState } from "react"
 
 
 function ArticleContainer(){
+    const [loggedIn, setLoggedIn] = useState(false)
+
+
     return (
         <>
+        <form>
+            <label>Log in:</label>
+            <input type="text" name="body" onChange={(event)=>{setLoggedIn(event.target.value)}}></input>
+        </form>
         <Article/>
         <UpdateArticleVotes/>
-        <NewArticleComments/>
-        <ArticleComments />
+        <NewArticleComments loggedIn={loggedIn}/>
+        <ArticleComments loggedIn={loggedIn}/>
         </>
     )
 }

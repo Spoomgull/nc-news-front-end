@@ -15,19 +15,17 @@ function Article (){
          })
  },[articleChoice])
  if(loading==="loaded"){
-
+const created_at = oneArticle.created_at.split("T")
      return (
-        <button>
-            <div className="article">
-                <li>Title: {oneArticle.title}</li>
-                <li>Topic: {oneArticle.topic}</li>
+            <article className="article">
+                <p>Title: {oneArticle.title}</p>
+                <p>Topic: {oneArticle.topic}</p>
                 <img src={oneArticle.article_img_url} className="article-img"/>
-                <li>Posted at: {oneArticle.created_at}</li>
-                <li>Created by: {oneArticle.author}</li>
-                <li>Likes: {oneArticle.votes}</li>
-                <li>Comments: {oneArticle.comment_count}</li>
-            </div>
-        </button>
+                <p>Posted at: {created_at[0]}</p>
+                <p>Created by: {oneArticle.author}</p>
+                <p>Likes: {oneArticle.votes}</p>
+                <p>Comments: {oneArticle.comment_count}</p>
+            </article>
 )
 }
 }

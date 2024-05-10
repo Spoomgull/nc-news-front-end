@@ -8,12 +8,15 @@ function UpdateArticleVotes (){
     const articleChoice = article.article_id
     let votes = 0
     const [newVotes, setNewVotes] = useState(votes)
+    const [limitLikes, setLimitLikes] = useState("hasnt liked")
 
     const handleSubmit = (e)=>{
         axios.patch(`https://northcoders-news-api-bjpy.onrender.com/api/articles/${articleChoice}`,{inc_votes: newVotes})
     .then((response)=>{
+        setLimitLikes("has liked")
     })
 }
+if(limitLikes === "hasnt liked"){
     return (
         <form onSubmit={handleSubmit}>
         <button key ="like" onClick={()=>{setNewVotes(1)}}>Like</button>
@@ -21,6 +24,7 @@ function UpdateArticleVotes (){
         <br/>
         </form>
     )
+}
 }
 
 export default UpdateArticleVotes

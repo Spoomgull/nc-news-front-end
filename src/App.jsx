@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import AllArticles from "./components/AllArticles";
 import Topics from "./components/Topics"
 import ArticleContainer from "./components/ArticleContainer"
-
+import Topic from "./components/Topic"
 
 function App() {  
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<AllArticles/>}/>
         <Route path="/Topics" element={<Topics/>}/>
         <Route path='/articles/:article_id' element={<ArticleContainer/>}/>
+        <Route path="/Topics/:topic" element={<Topic/>}/>
       </Routes>
     </>
   )

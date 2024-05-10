@@ -17,6 +17,8 @@
   list-style-type: none;
   width:fit-content;
   text-align: center;
+  border: 2px solid black;
+  text-wrap: wrap;
 }
 
 .article-img {
@@ -26,5 +28,6 @@
 
 .article-comment {
   list-style-type: none;
-  width:fit-content
+  width:fit-content;
+  border: 2px solid black;
 }

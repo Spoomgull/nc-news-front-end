@@ -16,17 +16,18 @@ function AllArticles({setArticleChoice}){
     if(loading==="loaded"){
         return (
             articlesArr.map((article,index)=>{
+                const created_at = article.created_at.split("T")
                 return (
                     <Link to={`/articles/${article.article_id}`}  key={article.article_id}>
-                        <button className="article">
-                            <li>Title: {article.title}</li>
-                            <li>Topic: {article.topic}</li>
+                        <article className="article">
+                            <p>Title: {article.title}</p>
+                            <p>Topic: {article.topic}</p>
                             <img src={article.article_img_url} className="article-img"/>
-                            <li>Posted at: {article.created_at}</li>
-                            <li>Created by: {article.author}</li>
-                            <li>Likes: {article.votes}</li>
-                            <li>Comments: {article.comment_count}</li>
-                        </button>
+                            <p>Posted at: {created_at[0]}</p>
+                            <p>Created by: {article.author}</p>
+                            <p>Likes: {article.votes}</p>
+                            <p>Comments: {article.comment_count}</p>
+                        </article>
                     </Link>
                 )
                 }
