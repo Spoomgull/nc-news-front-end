@@ -12,8 +12,8 @@ function ArticleContainer(){
     return (
         <>
         <form>
-            <label>Log in:</label>
-            <input type="text" name="body" onChange={(event)=>{setLoggedIn(event.target.value)}}></input>
+            <label htmlFor="username">Log in:</label>
+            <input type="text" name="body" id="username"onChange={(event)=>{setLoggedIn(event.target.value)}}></input>
         </form>
         <Article/>
         <UpdateArticleVotes/>
