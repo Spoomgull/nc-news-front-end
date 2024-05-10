@@ -1,8 +1,9 @@
 import { useEffect, useState} from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import ErrorArticle from "./ErrorArticle"
 
-function Article (){
+function Article ({setError, error}){
     const article = useParams()
     const articleChoice = article.article_id
     const [loading , setLoading] = useState("loading")
@@ -12,8 +13,15 @@ function Article (){
          .then((article)=>{
              setOneArticle(article.data.article)
              setLoading("loaded")
+         }).catch((err)=>{
+            setError({err})
          })
  },[articleChoice])
+
+if(error){
+    return <ErrorArticle/>
+}
+
  if(loading==="loaded"){
 const created_at = oneArticle.created_at.split("T")
      return (
